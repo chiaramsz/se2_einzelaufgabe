@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText inp;
     TextView txtOut;
+    TextView serverAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         inp = findViewById(R.id.student_number);
         txtOut = findViewById(R.id.solution);
+        serverAnswer = findViewById(R.id.antwort_vom_server);
     }
 
 
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             int product = 1;
-            int j = 0;
+            int j = 1;
 
             while (j < zahlArray.length) {
                 if (zahlArray[j] % 2 == 0) {
@@ -52,6 +54,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    //Network
+    public void sendToServer(View v) {
+        String studentNumber = inp.getText().toString();
+        String sendedAnswer;
+        TCPClient tcpClient = new TCPClient();
+
+        tcpClient.setStudentNumber(studentNumber);
+
+        tcpClient.start(); //start Thread
+
+        try {
+            tcpClient.join(1000); //wait max. 10 millisec for the end of thread
+            sendedAnswer = tcpClient.getServerAnswer();
+
+
+        } catch (InterruptedException e) {
+            sendedAnswer = "Could not reach port. Check your internet connection!";
+        }
+
+        serverAnswer.setText(sendedAnswer);
+
+
+    }
 }
 
 
