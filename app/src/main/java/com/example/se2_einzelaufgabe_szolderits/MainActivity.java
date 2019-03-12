@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
     public void calculate(View view) {
 
         String studentNumber = inp.getText().toString();
+        int[] zahlArray = new int[studentNumber.length()];
 
         if (studentNumber.isEmpty()) {
             txtOut.setText("Bitte Matrikelnummer eingeben!");
         } else {
-            int[] zahlArray = new int[studentNumber.length()];
 
             for (int i = 0; i < studentNumber.length(); i++) {
                 zahlArray[i] = Integer.parseInt(studentNumber.substring(i, i + 1));
@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
             txtOut.setText(solution);
         }
     }
-
 
 }
 
