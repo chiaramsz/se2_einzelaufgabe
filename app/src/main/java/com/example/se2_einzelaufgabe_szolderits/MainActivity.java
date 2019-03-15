@@ -9,7 +9,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     EditText inp;
-    TextView txtOut;
     TextView serverAnswer;
 
     @Override
@@ -18,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         inp = findViewById(R.id.student_number);
-        txtOut = findViewById(R.id.solution);
         serverAnswer = findViewById(R.id.antwort_vom_server);
     }
 
@@ -29,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         int[] zahlArray = new int[studentNumber.length()];
 
         if (studentNumber.isEmpty()) {
-            txtOut.setText("Bitte Matrikelnummer eingeben!");
+            inp.setText("Bitte Matrikelnummer eingeben!");
         } else {
 
             for (int i = 0; i < studentNumber.length(); i++) {
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     j++;
             }
             String solution = Integer.toString(product);
-            txtOut.setText(solution);
+            inp.setText(solution);
         }
     }
 
