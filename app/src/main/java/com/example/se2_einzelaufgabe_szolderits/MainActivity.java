@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
             for (int i = 0; i < studentNumber.length(); i++) {
                 zahlArray[i] = Integer.parseInt(studentNumber.substring(i, i + 1));
+                //string to substring
+                //i...start of substring, zahlArray[0]
+                //i+1... end of substring zahlArray[1]
             }
 
             int product = 1;
@@ -74,6 +77,29 @@ public class MainActivity extends AppCompatActivity {
 
         serverAnswer.setText(sendedAnswer);
 
+
+    }
+
+
+    public void calcSum(View v) {
+        String studentNumber = inp.getText().toString();
+        int[] zahlArray = new int[studentNumber.length()];
+
+        for(int i=0; i<studentNumber.length(); i++) {
+            zahlArray[i] = Integer.parseInt(studentNumber.substring(i, i + 1));
+        }
+
+        int j=0;
+        int sum = 0;
+
+        while(j < zahlArray.length) {
+            sum += zahlArray[j];
+            j++;
+
+        }
+
+        String solution = Integer.toString(sum);
+        inp.setText(solution);
 
     }
 }

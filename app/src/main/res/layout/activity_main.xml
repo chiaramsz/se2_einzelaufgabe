@@ -77,5 +77,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/student_number" />
 
+    <Button
+        android:id="@+id/sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Summe"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="314dp"
+        android:onClick="calcSum"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Summe"
+        tools:layout_editor_absoluteX="399dp"
+        tools:layout_editor_absoluteY="437dp" />
+
 
 </android.support.constraint.ConstraintLayout>

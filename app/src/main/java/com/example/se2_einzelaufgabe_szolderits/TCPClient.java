@@ -19,7 +19,7 @@ public class TCPClient extends Thread {
             Socket clientSocket = new Socket("se2-isys.aau.at", 53212);
 
 
-            DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
+            DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream()); //not just for writing bytes
 
             BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
@@ -34,6 +34,7 @@ public class TCPClient extends Thread {
             serverAnswer = "Could not listen on port!";
 
         }
+
     }
 
 
